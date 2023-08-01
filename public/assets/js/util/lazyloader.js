@@ -6,6 +6,8 @@
  * @example
  *   <element src="" data-src="/url/" data-srcset="..." />
  */
+
+// checks if the page is loaded and ready
 (function (ready) {
   if (document.readyState === "complete" || document.readyState === "interactive") {
     ready();
@@ -27,6 +29,7 @@
     el.removeAttribute("data-srcset");
   }
 
+  // figures out if an element is visible in the window
   if ("IntersectionObserver" in window) {
     var lazyObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
